@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.tuulingo.todoapp.util.UiEvent
+import kotlinx.coroutines.flow.collect
 
 @Composable
 fun AddEditTodoScreen(
@@ -61,7 +62,7 @@ fun AddEditTodoScreen(
             Spacer(modifier = Modifier.height(8.dp))
             TextField(
                 value = viewModel.description,
-                onValueChange = { viewModel.onEvent(AddEditTodoEvent.OnTitleChange(it)) },
+                onValueChange = { viewModel.onEvent(AddEditTodoEvent.OnDescriptionChange(it)) },
                 placeholder = {
                     Text(text = "Description")
                 },

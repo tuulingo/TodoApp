@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class TodoListViewModel @Inject constructor(
     private val repository: TodoRepository
-): ViewModel() {
+) : ViewModel() {
 
     val todos = repository.getTodos()
 
@@ -40,10 +40,12 @@ class TodoListViewModel @Inject constructor(
                 viewModelScope.launch {
                     deletedTodo = event.todo
                     repository.deleteTodo(event.todo)
-                    sendUiEvent(UiEvent.ShowSnackbar(
-                        message = "Todo deleted",
-                        action = "Undo"
-                    ))
+                    sendUiEvent(
+                        UiEvent.ShowSnackbar(
+                            message = "Todo deleted",
+                            action = "Undo"
+                        )
+                    )
                 }
             }
             is TodoListEvent.OnDoneChange -> {
@@ -61,7 +63,7 @@ class TodoListViewModel @Inject constructor(
         }
     }
 
-    private fun sendUiEvent(event: UiEvent){
+    private fun sendUiEvent(event: UiEvent) {
         viewModelScope.launch {
             _uiEvent.send(event)
         }

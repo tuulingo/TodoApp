@@ -1,11 +1,15 @@
 package com.tuulingo.todoapp.ui.todo_list
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.tuulingo.todoapp.data.Todo
 import com.tuulingo.todoapp.data.TodoRepository
+import com.tuulingo.todoapp.util.Routes
 import com.tuulingo.todoapp.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,26 +19,51 @@ class TodoListViewModel @Inject constructor(
 
     val todos = repository.getTodos()
 
-    private val _uiEvenet = Channel<UiEvent>()
-    val uiEvent = _uiEvenet.receiveAsFlow()
+    private val _uiEvent = Channel<UiEvent>()
+    val uiEvent = _uiEvent.receiveAsFlow()
+
+    var deletedTodo: Todo? = null
 
     fun onEvent(event: TodoListEvent) {
         when (event) {
             is TodoListEvent.OnAddTodoClick -> {
-
+                sendUiEvent(UiEvent.Navigate(Routes.ADD_EDIT_TODO))
             }
             is TodoListEvent.OnUndoDeleteClick -> {
-
+                deletedTodo?.let { todo ->
+                    viewModelScope.launch {
+                        repository.insertTodo(todo)
+                    }
+                }
             }
             is TodoListEvent.OnDeleteTodoClick -> {
-
+                viewModelScope.launch {
+                    deletedTodo = event.todo
+                    repository.deleteTodo(event.todo)
+                    sendUiEvent(UiEvent.ShowSnackbar(
+                        message = "Todo deleted",
+                        action = "Undo"
+                    ))
+                }
             }
             is TodoListEvent.OnDoneChange -> {
-
+                viewModelScope.launch {
+                    repository.insertTodo(
+                        event.todo.copy(
+                            isDone = event.isDone
+                        )
+                    )
+                }
             }
             is TodoListEvent.OnTodoClick -> {
-
+                sendUiEvent(UiEvent.Navigate(Routes.ADD_EDIT_TODO + "?todoId=${event.todo.id}"))
             }
+        }
+    }
+
+    private fun sendUiEvent(event: UiEvent){
+        viewModelScope.launch {
+            _uiEvent.send(event)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.data
+package com.tuulingo.todoapp.data.Todo
 
 import kotlinx.coroutines.flow.Flow
 

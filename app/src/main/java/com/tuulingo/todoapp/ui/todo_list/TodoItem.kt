@@ -10,11 +10,10 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.tuulingo.todoapp.data.Todo
+import com.tuulingo.todoapp.data.Todo.Todo
 
 @Composable
 fun TodoItem(

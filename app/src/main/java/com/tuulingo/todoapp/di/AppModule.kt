@@ -2,10 +2,9 @@ package com.tuulingo.todoapp.di
 
 import android.app.Application
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.tuulingo.todoapp.data.TodoDatabase
-import com.tuulingo.todoapp.data.TodoRepository
-import com.tuulingo.todoapp.data.TodoRepositoryImpl
+import com.tuulingo.todoapp.data.Todo.TodoDatabase
+import com.tuulingo.todoapp.data.Todo.TodoRepository
+import com.tuulingo.todoapp.data.Todo.TodoRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +29,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideTodoRepository(db: TodoDatabase): TodoRepository {
-        return TodoRepositoryImpl(db.dao)
+        return TodoRepositoryImpl(db.todoDao)
     }
 }

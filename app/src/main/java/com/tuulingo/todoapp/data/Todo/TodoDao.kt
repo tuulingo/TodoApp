@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.data
+package com.tuulingo.todoapp.data.Todo
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow

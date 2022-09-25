@@ -1,12 +1,10 @@
-package com.tuulingo.todoapp.data.Todo
+package com.tuulingo.todoapp.data.Categories
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Todo(
+data class Category(
     val title: String,
-    val description: String?,
-    val isDone: Boolean,
     @PrimaryKey val id: Int? = null
 )

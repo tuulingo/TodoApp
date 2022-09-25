@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.data
+package com.tuulingo.todoapp.data.Todo
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
@@ -9,5 +9,5 @@ import androidx.room.RoomDatabase
 )
 abstract class TodoDatabase : RoomDatabase() {
 
-    abstract val dao: TodoDao
+    abstract val todoDao: TodoDao
 }

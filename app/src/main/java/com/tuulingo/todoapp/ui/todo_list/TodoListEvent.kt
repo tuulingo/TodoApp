@@ -1,6 +1,6 @@
 package com.tuulingo.todoapp.ui.todo_list
 
-import com.tuulingo.todoapp.data.Todo
+import com.tuulingo.todoapp.data.Todo.Todo
 
 sealed class TodoListEvent {
     data class OnDeleteTodoClick(val todo: Todo): TodoListEvent()

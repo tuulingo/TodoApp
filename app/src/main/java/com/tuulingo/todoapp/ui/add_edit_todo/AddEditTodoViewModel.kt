@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tuulingo.todoapp.data.Todo
-import com.tuulingo.todoapp.data.TodoRepository
+import com.tuulingo.todoapp.data.Todo.Todo
+import com.tuulingo.todoapp.data.Todo.TodoRepository
 import com.tuulingo.todoapp.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

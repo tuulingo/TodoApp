@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.data.Todo
+package com.tuulingo.todoapp.data.todo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

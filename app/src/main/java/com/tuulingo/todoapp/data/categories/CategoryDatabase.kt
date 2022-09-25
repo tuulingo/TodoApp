@@ -1,8 +1,8 @@
-package com.tuulingo.todoapp.data.Categories
+package com.tuulingo.todoapp.data.categories
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.tuulingo.todoapp.data.Todo.Todo
+import com.tuulingo.todoapp.data.todo.Todo
 
 @Database(
     entities = [Todo::class],

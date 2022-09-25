@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.ui.add_edit_todo
+package com.tuulingo.todoapp.ui.todo.add_edit_todo
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tuulingo.todoapp.data.Todo.Todo
-import com.tuulingo.todoapp.data.Todo.TodoRepository
+import com.tuulingo.todoapp.data.todo.Todo
+import com.tuulingo.todoapp.data.todo.TodoRepository
 import com.tuulingo.todoapp.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

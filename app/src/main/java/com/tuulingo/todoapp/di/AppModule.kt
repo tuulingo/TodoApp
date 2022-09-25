@@ -2,9 +2,12 @@ package com.tuulingo.todoapp.di
 
 import android.app.Application
 import androidx.room.Room
-import com.tuulingo.todoapp.data.Todo.TodoDatabase
-import com.tuulingo.todoapp.data.Todo.TodoRepository
-import com.tuulingo.todoapp.data.Todo.TodoRepositoryImpl
+import com.tuulingo.todoapp.data.categories.CategoryDatabase
+import com.tuulingo.todoapp.data.categories.CategoryRepository
+import com.tuulingo.todoapp.data.categories.CategoryRepositoryImpl
+import com.tuulingo.todoapp.data.todo.TodoDatabase
+import com.tuulingo.todoapp.data.todo.TodoRepository
+import com.tuulingo.todoapp.data.todo.TodoRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +33,22 @@ object AppModule {
     @Singleton
     fun provideTodoRepository(db: TodoDatabase): TodoRepository {
         return TodoRepositoryImpl(db.todoDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCategoryDatabase(app: Application): CategoryDatabase
+    {
+        return Room.databaseBuilder(
+            app,
+            CategoryDatabase::class.java,
+            "catergory_db"
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCategoryRepository(db: CategoryDatabase): CategoryRepository {
+        return CategoryRepositoryImpl(db.categoryDao)
     }
 }

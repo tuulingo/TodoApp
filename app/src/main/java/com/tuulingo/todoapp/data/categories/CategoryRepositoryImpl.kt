@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.data.Categories
+package com.tuulingo.todoapp.data.categories
 
 import kotlinx.coroutines.flow.Flow
 

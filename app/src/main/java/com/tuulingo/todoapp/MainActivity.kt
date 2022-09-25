@@ -16,9 +16,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.tuulingo.todoapp.ui.add_edit_todo.AddEditTodoScreen
+import com.tuulingo.todoapp.ui.todo.add_edit_todo.AddEditTodoScreen
 import com.tuulingo.todoapp.ui.theme.ToDoAppTheme
-import com.tuulingo.todoapp.ui.todo_list.TodoListScreen
+import com.tuulingo.todoapp.ui.todo.todo_list.TodoListScreen
 import com.tuulingo.todoapp.util.Routes
 import dagger.hilt.android.AndroidEntryPoint
 

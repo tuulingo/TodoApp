@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.ui.todo_list
+package com.tuulingo.todoapp.ui.todo.todo_list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.ui.add_edit_todo
+package com.tuulingo.todoapp.ui.todo.add_edit_todo
 
 sealed class AddEditTodoEvent {
     data class OnTitleChange(val title: String): AddEditTodoEvent()

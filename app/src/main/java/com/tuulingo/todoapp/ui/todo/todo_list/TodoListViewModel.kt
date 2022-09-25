@@ -1,9 +1,9 @@
-package com.tuulingo.todoapp.ui.todo_list
+package com.tuulingo.todoapp.ui.todo.todo_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tuulingo.todoapp.data.Todo.Todo
-import com.tuulingo.todoapp.data.Todo.TodoRepository
+import com.tuulingo.todoapp.data.todo.Todo
+import com.tuulingo.todoapp.data.todo.TodoRepository
 import com.tuulingo.todoapp.util.Routes
 import com.tuulingo.todoapp.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel

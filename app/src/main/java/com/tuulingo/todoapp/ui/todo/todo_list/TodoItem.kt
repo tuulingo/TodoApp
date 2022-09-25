@@ -1,4 +1,4 @@
-package com.tuulingo.todoapp.ui.todo_list
+package com.tuulingo.todoapp.ui.todo.todo_list
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Checkbox
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.tuulingo.todoapp.data.Todo.Todo
+import com.tuulingo.todoapp.data.todo.Todo
 
 @Composable
 fun TodoItem(

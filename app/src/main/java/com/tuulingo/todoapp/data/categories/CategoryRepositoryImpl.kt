@@ -1,5 +1,7 @@
 package com.tuulingo.todoapp.data.categories
 
+import com.tuulingo.todoapp.data.relations.CategoryWithTodos
+import com.tuulingo.todoapp.data.todo.Todo
 import kotlinx.coroutines.flow.Flow
 
 class CategoryRepositoryImpl(
@@ -13,11 +15,15 @@ class CategoryRepositoryImpl(
         dao.deleteCategory(category)
     }
 
-    override suspend fun getCategoryById(id: Int): Category? {
-        return dao.getCategoryById(id)
+    override suspend fun getCategoryById(categoryId: Int): Category? {
+        return dao.getCategoryById(categoryId)
     }
 
     override fun getCategories(): Flow<List<Category>> {
         return dao.getCategories()
+    }
+
+    override suspend fun getCategoryWithTodos(categoryId: Int): Flow<List<CategoryWithTodos>> {
+        return dao.getCategoryWithTodos(categoryId)
     }
 }

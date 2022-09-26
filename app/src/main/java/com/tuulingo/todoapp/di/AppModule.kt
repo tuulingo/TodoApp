@@ -2,10 +2,9 @@ package com.tuulingo.todoapp.di
 
 import android.app.Application
 import androidx.room.Room
-import com.tuulingo.todoapp.data.categories.CategoryDatabase
 import com.tuulingo.todoapp.data.categories.CategoryRepository
 import com.tuulingo.todoapp.data.categories.CategoryRepositoryImpl
-import com.tuulingo.todoapp.data.todo.TodoDatabase
+import com.tuulingo.todoapp.data.TodoDatabase
 import com.tuulingo.todoapp.data.todo.TodoRepository
 import com.tuulingo.todoapp.data.todo.TodoRepositoryImpl
 import dagger.Module

@@ -36,18 +36,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCategoryDatabase(app: Application): CategoryDatabase
-    {
-        return Room.databaseBuilder(
-            app,
-            CategoryDatabase::class.java,
-            "catergory_db"
-        ).build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideCategoryRepository(db: CategoryDatabase): CategoryRepository {
+    fun provideCategoryRepository(db: TodoDatabase): CategoryRepository {
         return CategoryRepositoryImpl(db.categoryDao)
     }
 }

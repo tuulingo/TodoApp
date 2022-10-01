@@ -1,5 +1,7 @@
 package com.tuulingo.todoapp.ui.todo.add_edit_todo
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -13,6 +15,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,6 +50,7 @@ class AddEditTodoViewModel @Inject constructor(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onEvent(event: AddEditTodoEvent) {
         when (event) {
             is AddEditTodoEvent.OnTitleChange -> {
@@ -67,7 +72,9 @@ class AddEditTodoViewModel @Inject constructor(
                             title = title,
                             description = description,
                             isDone = todo?.isDone ?: false,
-                            todoId = todo?.todoId
+                            todoId = todo?.todoId,
+                            dateModified = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+                            categoryId = todo?.categoryId
                         )
                     )
                     sendUiEvent(UiEvent.PopBackStack)

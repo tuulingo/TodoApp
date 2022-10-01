@@ -43,7 +43,7 @@ fun TodoItem(
                     Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete")
                 }
             }
-            todo.description?.let {
+            todo.dateModified.let {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = it)
             }

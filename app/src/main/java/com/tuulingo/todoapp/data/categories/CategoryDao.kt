@@ -19,6 +19,6 @@ interface CategoryDao {
     fun getCategories(): Flow<List<Category>>
 
     @Transaction
-    @Query("SELECT * FROM category WHERE categoryId = categoryId")
-    suspend fun getCategoryWithTodos(categoryId: Int): Flow<List<CategoryWithTodos>>
+    @Query("SELECT * FROM todo WHERE categoryId = categoryId")
+    suspend fun getCategoryWithTodos(categoryId: Int): CategoryWithTodos
 }

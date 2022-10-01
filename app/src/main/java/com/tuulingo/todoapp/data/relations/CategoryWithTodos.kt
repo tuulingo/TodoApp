@@ -4,6 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Relation
 import com.tuulingo.todoapp.data.categories.Category
 import com.tuulingo.todoapp.data.todo.Todo
+import kotlinx.coroutines.flow.Flow
 
 data class CategoryWithTodos(
     @Embedded val category: Category,
@@ -11,5 +12,5 @@ data class CategoryWithTodos(
         parentColumn = "categoryId",
         entityColumn = "todoId"
     )
-    val todos: List<Todo>
+    val todos: Flow<List<Todo>>
 )

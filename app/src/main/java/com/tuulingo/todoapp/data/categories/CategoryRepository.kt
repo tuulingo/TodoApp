@@ -14,5 +14,5 @@ interface CategoryRepository {
 
     fun getCategories(): Flow<List<Category>>
 
-    suspend fun getCategoryWithTodos(categoryId: Int): Flow<List<CategoryWithTodos>>
+    suspend fun getCategoryWithTodos(categoryId: Int): CategoryWithTodos
 }

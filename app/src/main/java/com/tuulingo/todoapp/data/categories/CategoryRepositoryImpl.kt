@@ -23,7 +23,7 @@ class CategoryRepositoryImpl(
         return dao.getCategories()
     }
 
-    override suspend fun getCategoryWithTodos(categoryId: Int): Flow<List<CategoryWithTodos>> {
+    override suspend fun getCategoryWithTodos(categoryId: Int): CategoryWithTodos {
         return dao.getCategoryWithTodos(categoryId)
     }
 }
